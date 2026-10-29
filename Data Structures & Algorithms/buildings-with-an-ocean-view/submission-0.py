@@ -1,0 +1,12 @@
+class Solution:
+    def findBuildings(self, heights: List[int]) -> List[int]:
+        stack = []
+
+        for idx, b in enumerate(heights):
+            
+            while stack and b >= heights[stack[-1]]:
+                stack.pop()
+            stack.append(idx)
+        return stack
+
+                
