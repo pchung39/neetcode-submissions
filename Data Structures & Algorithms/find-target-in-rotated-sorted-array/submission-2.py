@@ -1,0 +1,19 @@
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+
+        if len(nums) == 1:
+            if nums[0] == target:
+                return 0
+
+        while l < r:
+            if nums[l] != target and nums[r] != target:
+                l += 1
+                r -= 1
+            
+            if nums[l] == target:
+                return l
+            elif nums[r] == target:
+                return r
+
+        return -1
